@@ -1,47 +1,46 @@
 package Repository;
 
+import Model.Array;
 import Model.Vehicle;
 
 import java.util.ArrayList;
 
 public class Repository {
-    ArrayList<Vehicle> items;
+    private Array arr;
 
     public Repository(){
-        items = new ArrayList<>();
+        arr = new Array();
     }
 
     public void add(Vehicle v) throws Exception
     {
-        for(Vehicle vehicle : items){
-            if (v.equals(vehicle))
-                throw new Exception("Vehicle already exists!");
-        }
+//        for(Vehicle vehicle : arr.getItems()){
+//            if (v.equals(vehicle))
+//                throw new Exception("Vehicle already exists!");
+//        }
 
-        items.add(v);
+        arr.add(v);
     }
 
-    public void del(int index) throws Exception
-    {
-        if (index > items.size())
-            throw new Exception("Index exceeds array size!");
-        items.remove(index);
-    }
+//    public void del(int index) throws Exception
+//    {
+//        if (index > arr.size())
+//            throw new Exception("Index exceeds array size!");
+//        arr.remove(index);
+//    }
 
-    public void del(Vehicle v) throws Exception
-    {
-        int counter = 0;
-        for(Vehicle vehicle : items) {
-            if (vehicle.equals(v)){
-                items.remove(counter);
-                break;
-            }
-            counter++;
-        }
-        throw new Exception("Vehicle does not exist!");
-    }
+//    public void del(Vehicle v) throws Exception
+//    {
+//        int counter = 0;
+//        for(Vehicle vehicle : arr) {
+//            if (vehicle.equals(v)){
+//                arr.remove(counter);
+//                break;
+//            }
+//            counter++;
+//        }
+//        throw new Exception("Vehicle does not exist!");
+//    }
 
-    public ArrayList<Vehicle> getItems(){
-        return items;
-    }
+    public Vehicle[] getItems() { return arr.getItems(); }
 }

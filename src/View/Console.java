@@ -23,16 +23,16 @@ public class Console {
     }
 
     private void showAll(){
-        ArrayList<Vehicle> items = ctrl.getItems();
-        System.out.println(String.format("There are %d parked vehicles", items.size()));
+        Vehicle[] items = ctrl.getItems();
+        System.out.println(String.format("There are %d parked vehicles", items.length));
         for(Vehicle v : items){
             System.out.println(v);
         }
     }
 
     private void showRed(){
-        ArrayList<Vehicle> items = ctrl.getRedVehicles();
-        System.out.println(String.format("There are %d parked red vehicles", items.size()));
+        Vehicle[] items = ctrl.getRedVehicles();
+        System.out.println(String.format("There are %d parked red vehicles", items.length));
         for(Vehicle v : items){
             System.out.println(v);
         }

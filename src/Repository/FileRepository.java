@@ -39,6 +39,7 @@ public class FileRepository extends Repository {
                 }
                 catch (Exception e)
                 {
+                    System.out.print("When loading from file: ");
                     System.out.println(e.getMessage());
                 }
             }

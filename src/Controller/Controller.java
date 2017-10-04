@@ -1,9 +1,6 @@
 package Controller;
 
-import Model.Bicycle;
-import Model.Car;
-import Model.Motorbike;
-import Model.Vehicle;
+import Model.*;
 import Repository.Repository;
 
 import java.util.ArrayList;
@@ -33,33 +30,30 @@ public class Controller {
         }
     }
 
-    public void del(int id) throws Exception
-    {
-        int counter = 0;
-        for (Vehicle v : repo.getItems())
-            if (v.getId() == id){
-                try{
-                    del(id);
-                    break;
-                }
-                catch (Exception e){
-                    throw new Exception(e.getMessage());
-                }
-            }
-        throw new Exception("No vehicle with this ID!");
-    }
+//    public void del(int id) throws Exception
+//    {
+//        int counter = 0;
+//        for (Vehicle v : repo.getArr())
+//            if (v.getId() == id){
+//                try{
+//                    del(id);
+//                    break;
+//                }
+//                catch (Exception e){
+//                    throw new Exception(e.getMessage());
+//                }
+//            }
+//        throw new Exception("No vehicle with this ID!");
+//    }
 
-    public ArrayList<Vehicle> getRedVehicles(){
-        ArrayList<Vehicle> redVehicles = new ArrayList<>();
+    public Vehicle[] getRedVehicles(){
+        Array redVehicles = new Array();
 
         for(Vehicle v : repo.getItems()){
-            if (v.getColor().toLowerCase().equals("red")) redVehicles.add(v);
+            if (v.getColor().toLowerCase().equals("red")) try{redVehicles.add(v);}catch (Exception e){System.out.println(e.getMessage());}
         }
 
-        return redVehicles;
+        return redVehicles.getItems();
     }
-
-    public ArrayList<Vehicle> getItems(){
-        return repo.getItems();
-    }
+    public Vehicle[] getItems() { return repo.getItems(); }
 }
