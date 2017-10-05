@@ -1,6 +1,7 @@
 package Repository;
 
 import Model.Array;
+import Model.DuplicateIDException;
 import Model.Vehicle;
 
 import java.util.ArrayList;
@@ -12,12 +13,12 @@ public class Repository {
         arr = new Array();
     }
 
-    public void add(Vehicle v) throws Exception
+    public void add(Vehicle v) throws DuplicateIDException
     {
-//        for(Vehicle vehicle : arr.getItems()){
-//            if (v.equals(vehicle))
-//                throw new Exception("Vehicle already exists!");
-//        }
+        for(Vehicle vehicle : arr.getItems()){
+            if (v.equals(vehicle))
+                throw new DuplicateIDException("Vehicle already exists!");
+        }
 
         arr.add(v);
     }

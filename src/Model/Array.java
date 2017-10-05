@@ -9,12 +9,12 @@ public class Array{
         this.items = new Vehicle[total];
     }
 
-    public void add(Vehicle v) throws Exception
+    public void add(Vehicle v) throws DuplicateIDException
     {
         for (Vehicle vehicle : items)
         {
             if (v.equals(vehicle))
-                throw new Exception("Vehicle not unique.");
+                throw new DuplicateIDException("Vehicle not unique.");
         }
 
         Vehicle[] new_items = new Vehicle[items.length + 1];

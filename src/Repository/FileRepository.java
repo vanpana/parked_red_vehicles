@@ -1,9 +1,6 @@
 package Repository;
 
-import Model.Bicycle;
-import Model.Car;
-import Model.Motorbike;
-import Model.Vehicle;
+import Model.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -37,7 +34,7 @@ public class FileRepository extends Repository {
                 try {
                     super.add(v);
                 }
-                catch (Exception e)
+                catch (DuplicateIDException e)
                 {
                     System.out.print("When loading from file: ");
                     System.out.println(e.getMessage());
